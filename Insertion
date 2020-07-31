@@ -1,22 +1,19 @@
+class Node{
+    int data;
+    Node next;
+}
 public class Main
 {
 	public static void main(String[] args) {
-	    LinkedList list=new LinkedList();
-	    list.insert(10);
-	    list.insert(20);
-	    list.insert(30);
-	    list.insert(40);
-	    list.insert1(2,50);
-	    list.show();
+		Linkedlist list=new Linkedlist();
+		list.insert(5);
+		list.insert(10);
+		list.insert(20);
+		list.insertAt(2,15);
+		list.show();
 	}
 }
-class Node
-{
-    int data;
-    Node next;
-    
-}
-class LinkedList
+class Linkedlist
 {
     Node head;
     public void insert(int data)
@@ -27,45 +24,52 @@ class LinkedList
         if(head==null)
         {
             head=node;
-        }else
+        }
+        else
         {
             Node n=head;
             while(n.next!=null)
             {
-                //System.out.println(n.next);
                 n=n.next;
             }
             n.next=node;
         }
     }
-   public void insert1(int n,int data)
+    public void insertAt(int z,int data)
     {
         Node node=new Node();
         node.data=data;
-        Node n1=head;
-        if(n>0)
-        {
-            while(n>1)
-            {
-                n1=n1.next;
-                n--;
-            }
-            node.next=n1.next;
-            n1.next=node;
-        }else
+        Node n=head;
+        if(z==0)
         {
             node.next=head;
             head=node;
         }
+        else
+        {
+            while(z>1)
+            {
+                n=n.next;
+                z--;
+            }
+            node.next=n.next;
+            n.next=node;
+            
+        }
+        
     }
     public void show()
     {
-        Node node=head;
-        while(node.next!=null)
+        Node n=head;
+        while(n.next!=null)
         {
-            System.out.println(node.data);
-            node=node.next;
+            System.out.println(n.data);
+            n=n.next;
+            
         }
-        System.out.println(node.data);
+        System.out.println(n.data);
+        
+        
     }
 }
+
