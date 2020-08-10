@@ -19,7 +19,7 @@ public class Main {
 
 }
 
-public class Stack1 {
+class Stack1 {
 	int size=5;
 	int a[]=new int[size];
 	int top=-1;
